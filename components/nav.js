@@ -1,11 +1,9 @@
-import { Link, useRouter, useSegments } from "expo-router";
+import { Link, usePathname, useRouter } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
 
 export default function Nav() {
 	const router = useRouter();
-	const segments = useSegments();
-
-	const lastSegment = segments.slice(-1);
+	const pathname = usePathname();
 
 	return (
 		<View style={styles.container}>
@@ -22,7 +20,7 @@ export default function Nav() {
 						style={[
 							styles.subtitle,
 							{
-								fontWeight: lastSegment == "" ? "bold" : "normal",
+								fontWeight: pathname == "/" ? "bold" : "normal",
 							},
 						]}
 					>
@@ -38,7 +36,7 @@ export default function Nav() {
 							styles.subtitle,
 							{
 								fontWeight:
-									lastSegment == "page-1-with-layout" ? "bold" : "normal",
+									pathname == "/page-1-with-layout" ? "bold" : "normal",
 							},
 						]}
 					>
@@ -52,7 +50,9 @@ export default function Nav() {
 							styles.subtitle,
 							{
 								fontWeight:
-									lastSegment == "view-a-with-layout" ? "bold" : "normal",
+									pathname == "/page-1-with-layout/view-a-with-layout"
+										? "bold"
+										: "normal",
 							},
 						]}
 					>
@@ -66,7 +66,9 @@ export default function Nav() {
 							styles.subtitle,
 							{
 								fontWeight:
-									lastSegment == "view-b-no-layout" ? "bold" : "normal",
+									pathname == "/page-1-with-layout/view-b-no-layout"
+										? "bold"
+										: "normal",
 							},
 						]}
 					>
@@ -81,8 +83,7 @@ export default function Nav() {
 						style={[
 							styles.subtitle,
 							{
-								fontWeight:
-									lastSegment == "page-2-no-layout" ? "bold" : "normal",
+								fontWeight: pathname == "/page-2-no-layout" ? "bold" : "normal",
 							},
 						]}
 					>
@@ -96,7 +97,9 @@ export default function Nav() {
 							styles.subtitle,
 							{
 								fontWeight:
-									lastSegment == "view-a-with-layout" ? "bold" : "normal",
+									pathname == "/page-2-no-layout/view-a-with-layout"
+										? "bold"
+										: "normal",
 							},
 						]}
 					>
@@ -110,7 +113,9 @@ export default function Nav() {
 							styles.subtitle,
 							{
 								fontWeight:
-									lastSegment == "view-b-no-layout" ? "bold" : "normal",
+									pathname == "/page-2-no-layout/view-b-no-layout"
+										? "bold"
+										: "normal",
 							},
 						]}
 					>
